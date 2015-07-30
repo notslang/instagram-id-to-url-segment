@@ -20,8 +20,8 @@ console.log(urlSegmentToInstagramId('5n7dDmhTr3')) # 1038059720608660215
 
 ```js
 var ref, urlSegmentToInstagramId, instagramIdToUrlSegment;
-ref = require('instagram-id-to-url-segment')
-instagramIdToUrlSegment = ref.instagramIdToUrlSegment
+ref = require('instagram-id-to-url-segment');
+instagramIdToUrlSegment = ref.instagramIdToUrlSegment;
 urlSegmentToInstagramId = ref.urlSegmentToInstagramId;
 
 console.log(instagramIdToUrlSegment('1038059720608660215')); // 5n7dDmhTr3
