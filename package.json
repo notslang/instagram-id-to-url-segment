@@ -1,0 +1,26 @@
+{
+  "name": "instagram-id-to-url-segment",
+  "description": "Convert Instagram post IDs into Instagram links, algorithmically",
+  "version": "0.0.0",
+  "author": "Sean Lang <slang800@gmail.com>",
+  "dependencies": {
+    "bignumber.js": "^2.0.7"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.3",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  },
+  "keywords": [
+    "MediaId",
+    "convert",
+    "instagram",
+    "permalink"
+  ],
+  "license": "GPL-3.0",
+  "main": "lib",
+  "repository": "git://github.com/slang800/instagram-id-to-url-segment.git",
+  "scripts": {
+    "test": "mocha"
+  }
+}
