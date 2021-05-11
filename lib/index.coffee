@@ -1,24 +1,14 @@
 BigNumber = require 'bignumber.js'
-map = require './charmap'
-
-# `map` is for converting from the number -> character parings that JS uses,
-# into the standard base64 table
-reversedMap = {}
-for i, o of map
-  reversedMap[o] = i
+BigNumber.config({
+  ALPHABET: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$_',
+});
 
 instagramIdToUrlSegment = (id) ->
-  id = (new BigNumber(id)).toString(64)
-  urlSegment = ''
-  for char in id
-    urlSegment += map[char]
-  return urlSegment
+  if (typeof id == 'number' && id > Number.MAX_SAFE_INTEGER)
+    throw ('Input value too large, please pass as string')
+  (new BigNumber(id)).toString(64).replace(/\$/g, '-')
 
 urlSegmentToInstagramId = (urlSegment) ->
-  id = ''
-  for char in urlSegment
-    id += reversedMap[char]
-  id = (new BigNumber(id, 64)).toString(10)
-  return id
+  (new BigNumber(urlSegment.replace(/-/g, '$'), 64)).toString(10)
 
 module.exports = {instagramIdToUrlSegment, urlSegmentToInstagramId}
